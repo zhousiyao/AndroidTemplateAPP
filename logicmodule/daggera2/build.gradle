@@ -4,6 +4,7 @@ if(isDebug){
     apply plugin : "com.android.library"
 }
 apply plugin : "kotlin-android"
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion build_version.compileSdkVersion
@@ -41,6 +42,8 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
     api project (':basemodule:base')
+
     implementation logicmodule_dagger2_depend.dagger2
-    annotationProcessor logicmodule_dagger2_depend.dagger2AnnotationProcessor
+    kapt logicmodule_dagger2_depend.dagger2AnnotationProcessor //Kotlin 将annotationProcessor转为用kapt
+//    annotationProcessor logicmodule_dagger2_depend.dagger2AnnotationProcessor
 }
