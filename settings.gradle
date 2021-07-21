@@ -1,1 +1,3 @@
+include ':basemodule:base'
+include ':logicmodule:daggera2'
 include ':app'

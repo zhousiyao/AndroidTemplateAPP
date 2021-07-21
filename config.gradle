@@ -1,0 +1,23 @@
+ext {
+
+    isDebug = true //控制逻辑组件的开关
+
+    build_version = [
+        compileSdkVersion : 30,
+        buildToolsVersion :"30.0.3",
+        minSdkVersion : 21,
+        targetSdkVersion : 30,
+        versionCode : 1,
+        versionName : "1.0"
+    ]
+
+    application_id = [
+        app : "com.zsy.app",
+        logicmodule_dagger2 : "com.zsy.logicmodule.dagger2"
+    ]
+
+    logicmodule_dagger2_depend = [
+        dagger2 : "com.google.dagger:dagger:2.38",
+        dagger2AnnotationProcessor : "com.google.dagger:dagger-compiler:2.38"
+    ]
+}

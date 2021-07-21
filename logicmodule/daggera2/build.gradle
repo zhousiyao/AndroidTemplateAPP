@@ -1,19 +1,22 @@
-plugins {
-    id 'com.android.application'
+if(isDebug){
+    apply plugin : "com.android.application"
+}else{
+    apply plugin : "com.android.library"
 }
+apply plugin : "kotlin-android"
 
 android {
     compileSdkVersion build_version.compileSdkVersion
     buildToolsVersion build_version.buildToolsVersion
 
     defaultConfig {
-        applicationId application_id.app
+        applicationId application_id.logicmodule_dagger2
         minSdkVersion build_version.minSdkVersion
         targetSdkVersion build_version.targetSdkVersion
         versionCode build_version.versionCode
         versionName build_version.versionName
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -26,6 +29,9 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
 }
 
 dependencies {
@@ -34,5 +40,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
-    implementation project (':basemodule:base')
+    api project (':basemodule:base')
+    implementation logicmodule_dagger2_depend.dagger2
+    annotationProcessor logicmodule_dagger2_depend.dagger2AnnotationProcessor
 }
