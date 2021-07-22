@@ -2,9 +2,10 @@ package com.zsy.logicmodule.dagger2.di
 
 import dagger.Module
 import dagger.Provides
+import javax.inject.Singleton
 
 @Module
-class ProvideInstance {
+class ApplicationModule {
 
 //    lateinit var context: Context
 //
@@ -25,6 +26,7 @@ class ProvideInstance {
 //    fun provideScopeClass():ScopeClass{
 //        return ScopeClass()
 //    }
+
     @Provides
     fun provideDependInstance():User{
         return User("Provides提供的")

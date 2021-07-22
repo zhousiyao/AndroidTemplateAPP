@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidTemplateAPP">
+        <activity android:name=".Dagger2SecondActivity"></activity>
         <activity android:name=".Dagger2MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
