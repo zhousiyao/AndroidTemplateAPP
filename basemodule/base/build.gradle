@@ -33,10 +33,5 @@ android {
 }
 
 dependencies {
-    api basemodule_base.appcompat
-    api basemodule_base.constraintlayout
-    api basemodule_base.material
-    api basemodule_base.core_ktx
-
-    api basemodule_base.kotlinx_coroutines_core
+    basemodule_base.each {k,v -> api v}
 }

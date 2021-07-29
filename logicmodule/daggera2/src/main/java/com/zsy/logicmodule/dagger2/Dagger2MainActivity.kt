@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import com.zsy.basemodule.base.utils.LogUtils
 import com.zsy.logicmodule.dagger2.component.DaggerApplicationComponent
 import com.zsy.logicmodule.dagger2.di.User

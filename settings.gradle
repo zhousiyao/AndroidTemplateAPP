@@ -1,3 +1,7 @@
+include ':basemodule:common'
+include ':viewmodule:recycleview'
+include ':viewmodule:banner'
+include ':viewmodule:viewpager'
 include ':logicmodule:glide'
 include ':basemodule:okhttp'
 include ':basemodule:base'

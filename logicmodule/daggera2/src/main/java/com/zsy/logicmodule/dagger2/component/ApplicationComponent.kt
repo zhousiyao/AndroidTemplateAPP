@@ -1,6 +1,5 @@
 package com.zsy.logicmodule.dagger2.component
 
-import android.app.Application
 import com.zsy.logicmodule.dagger2.Dagger2MainActivity
 import com.zsy.logicmodule.dagger2.Dagger2SecondActivity
 import com.zsy.logicmodule.dagger2.di.ApplicationModule
