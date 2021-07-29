@@ -48,7 +48,6 @@ dependencies {
 
     api project (':basemodule:base')
 
-    implementation logicmodule_dagger2_depend.dagger2
-    kapt logicmodule_dagger2_depend.dagger2AnnotationProcessor //Kotlin 将annotationProcessor转为用kapt
-//    annotationProcessor logicmodule_dagger2_depend.dagger2AnnotationProcessor
+    implementation logicmodule_glide_depend.glide_core
+    kapt logicmodule_glide_depend.glide_kapt //Kotlin 将annotationProcessor转为用kapt
 }

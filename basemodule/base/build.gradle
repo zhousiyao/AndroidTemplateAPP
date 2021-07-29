@@ -33,9 +33,10 @@ android {
 }
 
 dependencies {
-    api 'androidx.appcompat:appcompat:1.1.0' //AndroidX的所有核心库（Extrnal Libraries前22项）
-    api 'androidx.constraintlayout:constraintlayout:1.1.3'
+    api basemodule_base.appcompat
+    api basemodule_base.constraintlayout
+    api basemodule_base.material
+    api basemodule_base.core_ktx
 
-    api 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.5'
-
+    api basemodule_base.kotlinx_coroutines_core
 }

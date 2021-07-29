@@ -1,3 +1,5 @@
+include ':logicmodule:glide'
+include ':basemodule:okhttp'
 include ':basemodule:base'
 include ':logicmodule:daggera2'
 include ':app'

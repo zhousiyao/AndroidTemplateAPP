@@ -1,25 +1,20 @@
-if(isDebug){
-    apply plugin : "com.android.application"
-}else{
-    apply plugin : "com.android.library"
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
 }
-apply plugin : "kotlin-android"
-apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion build_version.compileSdkVersion
     buildToolsVersion build_version.buildToolsVersion
 
     defaultConfig {
-        if(isDebug){
-            applicationId application_id.logicmodule_dagger2
-        }
         minSdkVersion build_version.minSdkVersion
         targetSdkVersion build_version.targetSdkVersion
         versionCode build_version.versionCode
         versionName build_version.versionName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
@@ -35,20 +30,12 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-
-    kapt {
-        generateStubs = true
-    }
 }
 
 dependencies {
-    testImplementation 'junit:junit:4.+'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
-    api project (':basemodule:base')
+    api basemodule_okhttp.okhttp
+    api basemodule_okhttp.logging_interceptor
 
-    implementation logicmodule_dagger2_depend.dagger2
-    kapt logicmodule_dagger2_depend.dagger2AnnotationProcessor //Kotlin 将annotationProcessor转为用kapt
-//    annotationProcessor logicmodule_dagger2_depend.dagger2AnnotationProcessor
+//    api project(":basemodule:base")
 }
