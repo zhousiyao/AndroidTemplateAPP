@@ -38,6 +38,7 @@ ext {
             "Retrofit2"       : "com.squareup.retrofit2:retrofit:2.9.0",
             "Retrofit2Gson"   : "com.squareup.retrofit2:converter-gson:2.9.0",
             "Retrofit2RxJava" : "com.squareup.retrofit2:adapter-rxjava2:2.9.0",
+            "RxJavaAndroid"   : "io.reactivex.rxjava2:rxandroid:2.0.2",
     ]
 
     basemodule_okhttp = [
