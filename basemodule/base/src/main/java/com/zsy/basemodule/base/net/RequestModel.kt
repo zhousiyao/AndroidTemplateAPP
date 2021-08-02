@@ -4,7 +4,6 @@ import androidx.lifecycle.LifecycleOwner
 import com.zsy.basemodule.base.net.ResponseTransformer.Companion.obtain
 import io.reactivex.Observable
 import io.reactivex.disposables.Disposable
-import io.reactivex.functions.Consumer
 
 /**
  * 统一请求的封装
@@ -22,6 +21,7 @@ object RequestModel {
                     lifecycleOwner: LifecycleOwner,
                     callback: ICallback<T>) {
         val d: Disposable = o.compose(obtain(lifecycleOwner))
-                .subscribe(Consumer<T> { t -> callback.onSuccess(t) }, Consumer<Throwable?> { throwable -> callback.onError(throwable!!) })
+                .subscribe({ t -> callback.onSuccess(t) },
+                        { throwable -> callback.onError(throwable!!) })
     }
 }

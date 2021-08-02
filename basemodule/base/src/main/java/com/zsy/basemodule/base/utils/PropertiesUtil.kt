@@ -11,6 +11,8 @@ import java.util.*
  */
 object PropertiesUtil {
     private var props: Properties? = null
+
+    @JvmStatic
     fun init(c: Context) {
         props = Properties()
         var `in`: InputStream? = null
@@ -32,6 +34,7 @@ object PropertiesUtil {
         }
     }
 
+    @JvmStatic
     fun getProperty(key: String?): String {
         return props!!.getProperty(key)
     }
