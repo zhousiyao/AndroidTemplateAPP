@@ -13,7 +13,7 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.functions.Function
 import io.reactivex.schedulers.Schedulers.io
 
-class ResponseTransformer<T> private constructor() : ObservableTransformer<IResponse<T>, T>, LifecycleObserver {
+class ResponseTransformer<T> private constructor() : ObservableTransformer< IResponse<T>, T>, LifecycleObserver {
 
     private val compositeDisposable = CompositeDisposable()
 
@@ -27,12 +27,17 @@ class ResponseTransformer<T> private constructor() : ObservableTransformer<IResp
         }
     }
 
-    //
-    fun obtain(lifecycleOwner: LifecycleOwner):ResponseTransformer<T>{
-        val responseTransformer = ResponseTransformer<T>()
-        lifecycleOwner.lifecycle.addObserver(responseTransformer)
+    /**
+     * 获取实例
+     */
+    companion object{
+        @JvmStatic
+        fun <T> obtain(lifecycleOwner: LifecycleOwner):ResponseTransformer<T>{
+            val responseTransformer = ResponseTransformer<T>()
+            lifecycleOwner.lifecycle.addObserver(responseTransformer)
 
-        return responseTransformer
+            return responseTransformer
+        }
     }
 
     override fun apply(upstream: Observable<IResponse<T>>): ObservableSource<T> {
