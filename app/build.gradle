@@ -14,7 +14,13 @@ android {
         versionCode build_version.versionCode
         versionName build_version.versionName
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+//        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+//        kapt {
+//            arguments {
+//                arg("AROUTER_MODULE_NAME", project.getName())
+//            }
+//        }
     }
 
     buildTypes {
@@ -30,13 +36,14 @@ android {
 }
 
 dependencies {
-
-    testImplementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"//增加这行
-    testImplementation "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"//增加这行
+    //单元测试
+    testImplementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"//增加这行 Kotlin单元测试
+    testImplementation "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"//增加这行 Kotlin单元测试
     testImplementation 'junit:junit:4.+'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
-
+    //基础和通用依赖
     implementation project (':basemodule:base')
+    implementation project (':basemodule:common')
 }

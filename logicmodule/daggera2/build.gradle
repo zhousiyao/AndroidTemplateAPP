@@ -20,6 +20,13 @@ android {
         versionName build_version.versionName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                //如果用到其他三方注解器记得用+=
+                arguments += [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
     }
 
     buildTypes {

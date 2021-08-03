@@ -1,12 +1,14 @@
 package com.zsy.app
 
-class A {
-    constructor(){
+class A constructor(a : Int , str : String) {
+
+    constructor():this(123,"321"){
         println("constructor() ")
     }
 
     init {
-        println("init() ")
+        println("init() $a")
+        println("init() $str")
     }
 
     companion object{

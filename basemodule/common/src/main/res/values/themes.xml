@@ -1,0 +1,78 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <!--您的应用的主要品牌颜色，主要用于主题-->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <!--您的主要品牌颜色的较浅/较暗变体，在主题中很少使用-->
+        <item name="colorPrimaryVariant">@color/colorPrimary</item>
+        <!--用于显示在原色上方的元素的颜色（例如，文本和图标，根据可访问性，通常为白色或半透明的黑色）-->
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <!--您应用程式的次要品牌色彩，主要用于强调某些需要突出的小部件-->
+        <!--<item name="colorSecondary">@color/colorPrimary</item>-->
+        <!--您的次要品牌颜色的较浅/较深变体，在主题中很少使用-->
+        <!--<item name="colorSecondaryVariant">@color/colorPrimary</item>-->
+        <!--用于显示在辅助颜色顶部的元素的颜色-->
+        <!--<item name="colorOnSecondary">@color/white</item>-->
+        <!-- Status bar color. -->
+        <!--状态栏颜色-->
+        <item name="android:statusBarColor" tools:targetApi="1">@color/colorPrimary</item>
+        <!-- Customize your theme here. -->
+        <item name="android:colorBackground">@color/colorPrimaryWindowBg</item>
+    </style>
+
+    <style name="SplashTheme" parent="AppTheme">
+        <!--<item name="android:windowFullscreen">true</item>-->
+        <item name="android:windowBackground">@drawable/bg_splash</item>
+    </style>
+
+    <style name="tabTextStyle">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="GRID_PICTURE_IV">
+        <item name="android:layout_width">100dp</item>
+        <item name="android:layout_height">100dp</item>
+        <!--<item name="android:background">@color/bg_grid_picture_color</item>-->
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+
+    <!--消息对话框样式-->
+    <!--backgroundDimAmount：调节蒙层的透明度0-1-->
+    <style name="MsgDialogTheme">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">0.65</item>
+    </style>
+
+    <style name="LoadingDialogTheme" parent="MsgDialogTheme">
+        <item name="android:windowAnimationStyle">@style/loading_dialog_anim</item>
+    </style>
+
+    <style name="loading_dialog_anim">
+        <item name="android:windowEnterAnimation">@anim/dialog_alpha_in</item>
+        <item name="android:windowExitAnimation">@anim/dialog_alpha_out</item>
+    </style>
+
+    <style name="MainEnsureButton">
+        <item name="android:layout_height">48dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@drawable/selector_btn_common</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="MAIN_DIVIDER">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0.8dp</item>
+        <item name="android:background">@color/divider_color_gray2</item>
+    </style>
+</resources>

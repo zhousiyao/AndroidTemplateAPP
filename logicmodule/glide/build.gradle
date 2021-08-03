@@ -20,6 +20,13 @@ android {
         versionName build_version.versionName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                //如果用到其他三方注解器记得用+=
+                arguments += [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
     }
 
     buildTypes {
@@ -42,12 +49,9 @@ android {
 }
 
 dependencies {
-    testImplementation 'junit:junit:4.+'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
     api project (':basemodule:base')
 
-    implementation logicmodule_glide_depend.glide_core
-    kapt logicmodule_glide_depend.glide_kapt //Kotlin 将annotationProcessor转为用kapt
+//    implementation logicmodule_glide_depend.glide_core
+//    kapt logicmodule_glide_depend.glide_kapt //Kotlin 将annotationProcessor转为用kapt
 }
