@@ -5,11 +5,11 @@ package com.zsy.basemodule.base.net
  */
 interface IResponse<T> {
 
-    fun getData(): T
+    fun getData(): T?
 
-    fun getMsg(): String
+    fun getMsg(): String?
 
-    fun getCode(): String
+    fun getCode(): String?
 
-    fun isSuccess(): Boolean
+    fun isSuccess(): Boolean?
 }

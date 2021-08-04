@@ -44,13 +44,18 @@ ext {
             "ARouter"         : "com.alibaba:arouter-api:1.5.1",
             //Glide
             "Glide" : "com.github.bumptech.glide:glide:4.11.0",
+            //依赖注入
+            "Hilt"            : "com.google.dagger:hilt-android:2.28-alpha",
 
             "Startup"         : "androidx.startup:startup-runtime:1.0.0-alpha01", //专用于init
             "RecyclerAdapter" : "com.github.CymChad:BaseRecyclerViewAdapterHelper:3.+",//三方RecycleView封装
     ]
 
     apt_base = [
-            "Arouter" : "com.alibaba:arouter-compiler:1.5.2"
+            "Arouter" : "com.alibaba:arouter-compiler:1.5.2",
+            "HiltCompiler"        : "com.google.dagger:hilt-android-compiler:2.28-alpha",
+            "GlideCompiler"       : "com.github.bumptech.glide:compiler:4.11.0",
+            "AndroidxHiltCompiler": "androidx.hilt:hilt-compiler:1.0.0-alpha01",
     ]
 
     basemodule_okhttp = [

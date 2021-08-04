@@ -14,11 +14,11 @@ android {
 
         consumerProguardFiles "consumer-rules.pro"
 
-//        kapt {
-//            arguments {
-//                arg("AROUTER_MODULE_NAME", project.getName())
-//            }
-//        }
+        kapt {
+            arguments {
+                arg("AROUTER_MODULE_NAME", project.getName())
+            }
+        }
 
     }
 
@@ -35,12 +35,15 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    //支持ViewBinding
+    android.buildFeatures.viewBinding = true
 }
 
 dependencies {
     implementation project (':basemodule:base')
 
-//    apt_base.each{k,v -> kapt v }
+    apt_base.each{k,v -> kapt v }
 
     // https://github.com/wasabeef/glide-transformations  为Glide提供各种形状的的三方库
     implementation 'jp.wasabeef:glide-transformations:4.3.0' //存在依赖冲突风险

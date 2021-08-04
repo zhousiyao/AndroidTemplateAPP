@@ -1,4 +1,4 @@
-package com.zsy.basemodule.common.constant
+package com.zsy.basemodule.common.arouter.constant
 
 interface RoutePath {
     companion object {
