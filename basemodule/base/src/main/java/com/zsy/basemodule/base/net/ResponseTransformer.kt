@@ -47,7 +47,7 @@ class ResponseTransformer<T> private constructor() : ObservableTransformer< IRes
                     Observable.error(ApiException.handleException(throwable))})
                 ?.flatMap<T>(object : Function<IResponse<T>, ObservableSource<T>> {
                     override fun apply(response: IResponse<T>): ObservableSource<T> {
-                        if (response.isSuccess()) {
+                        if (response.isSuccess()!!) {
                             if (response.getData() != null) {
                                 return Observable.just(response.getData())
                             } else {
@@ -58,7 +58,7 @@ class ResponseTransformer<T> private constructor() : ObservableTransformer< IRes
                                 return Observable.just(`object`)
                             }
                         }
-                        return Observable.error(ApiException(response.getCode(), response.getMsg()))
+                        return Observable.error(ApiException(response.getCode()!!, response.getMsg()!!))
                     }
 
                 })?.subscribeOn(io()) //指定事件产生的线程(请求的线程)

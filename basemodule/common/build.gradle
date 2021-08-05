@@ -1,6 +1,7 @@
-apply plugin:  'com.android.library'
-apply plugin:  'kotlin-android'
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
 
 android {
     compileSdkVersion build_version.compileSdkVersion
@@ -41,9 +42,11 @@ android {
 }
 
 dependencies {
-    implementation project (':basemodule:base')
+    api project(':basemodule:base')
 
-    apt_base.each{k,v -> kapt v }
+    //基础依赖和kapt
+    libs.each {k,v -> implementation v}
+    apt_base.each { k, v -> kapt v }
 
     // https://github.com/wasabeef/glide-transformations  为Glide提供各种形状的的三方库
     implementation 'jp.wasabeef:glide-transformations:4.3.0' //存在依赖冲突风险
