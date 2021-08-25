@@ -26,34 +26,71 @@ class PrintABC{
         this.num = num;
     }
 
-    public synchronized void printA() throws InterruptedException {
-        while (num != 1){
-            this.wait();
-        }
+//    public synchronized void printA() throws InterruptedException {
+//        while (num != 1){
+//            this.wait();
+//        }
+//
+//        System.out.print("A");
+//        num = 2;
+//        this.notifyAll();
+//    }
+    public void printA() throws InterruptedException {
+        for (int i=0;i<10;i++)
+            synchronized (this) {
+                while (num != 1) {
+                    this.wait();
+                }
 
-        System.out.print("A");
-        num = 2;
-        this.notifyAll();
+                System.out.print("A");
+                num = 2;
+                this.notifyAll();
+            }
     }
 
-    public synchronized void printB() throws InterruptedException {
-        while (num != 2){
-            this.wait();
-        }
-        System.out.print("B");
+//    public synchronized void printB() throws InterruptedException {
+//        while (num != 2){
+//            this.wait();
+//        }
+//        System.out.print("B");
+//
+//        num = 3; //通知打印C
+//        this.notifyAll();
+//    }
+    public void printB() throws InterruptedException {
+        for (int i=0;i<10;i++)
+            synchronized (this) {
+                while (num != 2) {
+                    this.wait();
+                }
+                System.out.print("B");
 
-        num = 3; //通知打印C
-        this.notifyAll();
+                num = 3; //通知打印C
+                this.notifyAll();
+            }
     }
-    public synchronized void printC() throws InterruptedException {
-        while (num != 3){
-            this.wait();
-        }
+//    public synchronized void printC() throws InterruptedException {
+//        while (num != 3){
+//            this.wait();
+//        }
+//
+//        System.out.print("C");
+//
+//        num = 1; //通知打印A
+//        this.notifyAll();
+//    }
+    public void printC() throws InterruptedException {
+        for (int i=0;i<10;i++)
+            synchronized (this) {
+                while (num != 3) {
+                    this.wait();
+                }
 
-        System.out.print("C");
+                System.out.print("C");
 
-        num = 1; //通知打印A
-        this.notifyAll();
+                num = 1; //通知打印A
+                this.notifyAll();
+            }
     }
 }
 
